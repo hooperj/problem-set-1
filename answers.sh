@@ -1,9 +1,9 @@
 #! /usr/bin/env bash 
 
-datadir=~/bashClass/data-sets
+datadir=/WorkFiles/courses/JaysClass/data-sets
 
 #Which state in `states.tab.gz` has the lowest murder rate?
-a1=$(zcat $datadir/misc/states.tab.gz |\
+a1=$(gzcat $datadir/misc/states.tab.gz |\
     sort -g -k 6|\
     head -2|\
     tail -n 1 | \
@@ -16,9 +16,9 @@ a2=$(grep '>'  $datadir/fasta/sample.fa| wc -l)
 echo 'answer-2:' $a2
 
 #How many unique CpG IDs are in `cpg.bed.gz`?
-a3=$(zcat $datadir/bed/cpg.bed.gz |\
+a3=$(gzcat $datadir/bed/cpg.bed.gz |\
     cut -f 4|\
-    uniq |\
+    sort |uniq |\
     wc -l)
 echo 'answer-3:' $a3
 
@@ -40,7 +40,7 @@ a6=$(grep -A 1 '>'  $datadir/fasta/sample.fa|\
 echo 'answer-6:' $a6
 
 #What is the name of the longest gene in `genes.hg19.bed.gz`?
-a7=$(zcat $datadir/bed/genes.hg19.bed.gz|\
+a7=$(gzcat $datadir/bed/genes.hg19.bed.gz|\
     awk 'BEGIN{OFS="\t"} {print $4, $3-$2}'| \
     sort -k 2 -nr| \
     head -1 | \
@@ -48,7 +48,7 @@ a7=$(zcat $datadir/bed/genes.hg19.bed.gz|\
 echo 'answer-7:' $a7
 
 #How many unique chromosomes are in `genes.hg19.bed.gz`?
-a8=$(zcat $datadir/bed/genes.hg19.bed.gz | \
+a8=$(gzcat $datadir/bed/genes.hg19.bed.gz | \
     cut -f 1| \
     uniq |\
     wc -l)
@@ -56,7 +56,7 @@ echo 'answer-8:' $a8
 
 #How many intervals are associated with CTCF (**not** CTCFL) in
   #   `peaks.chr22.bed.gz`?
-a9=$(zcat $datadir/bed/peaks.chr22.bed.gz | \
+a9=$(gzcat $datadir/bed/peaks.chr22.bed.gz | \
     grep CTCF$ | \
     wc -l)
 echo 'answer-9:' $a9
