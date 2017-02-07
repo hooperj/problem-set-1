@@ -27,11 +27,13 @@ a4=$(grep :UMI_ $datadir/fastq/SP1.fq | wc -l)
 echo 'answer-4:' $a4
 
 #How many words are on lines containing the word `bloody` in `hamlet.txt`?
-a5=$(for i in 1 2 3 4 5 6
-        do
-            grep -m $i bloody $datadir/misc/hamlet.txt| \
-                tail -n 1 | wc -w
-        done)
+#a5=$(for i in 1 2 3 4 5 6
+#        do
+#            grep -m $i bloody $datadir/misc/hamlet.txt| \
+#                tail -n 1 | wc -w
+#        done)
+
+a5=$(grep 'bloody' $datadir/misc/hamlet.txt| wc -w)
 echo 'answer-5:' $a5
 
 #What is the length of the sequence in the first record of `sample.fa`?
