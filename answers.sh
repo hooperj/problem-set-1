@@ -52,7 +52,7 @@ echo 'answer-7:' $a7
 #How many unique chromosomes are in `genes.hg19.bed.gz`?
 a8=$(gzcat $datadir/bed/genes.hg19.bed.gz | \
     cut -f 1| \
-    uniq |\
+    sort | uniq |\
     wc -l)
 echo 'answer-8:' $a8
 
