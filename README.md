@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/MOLB7621/problem-set-1.svg?branch=master)](https://travis-ci.org/MOLB7621/problem-set-1)
+[![Build Status](https://travis-ci.org/hooperj/problem-set-1.svg?branch=master)](https://travis-ci.org/hooperj/problem-set-1)
 
 # Problem Set 1
 
